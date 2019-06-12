@@ -46,11 +46,11 @@ tasks.create(name: "runTwitter", type: RunApk){
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion 19
+        targetSdkVersion 28
     }
 
     dependencies {
@@ -60,11 +60,13 @@ android {
             exclude group: 'com.google.android', module: 'android'
         }
         // add explicit dependency because gcm uses full support-v4 instead of core utils.
-        compile 'com.android.support:support-v4:25.0.1'
+//        compile 'com.android.support:support-v4:25.0.1'
+        compile 'androidx.appcompat:appcompat:1.1.0-beta01'
+
         compile 'org.twitter4j:twitter4j-core:3.0.5'
         compile project(":jobqueue")
         compile files('external-libs/greenDAO.jar')
-        compile 'com.google.android.gms:play-services-gcm:10.0.1'
+        compile 'com.google.android.gms:play-services-gcm:16.1.0'
 
     }
 
